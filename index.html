@@ -1,12 +1,48 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitacion</title>
+    <link rel="stylesheet" href="corazon.css">
+    <title>Anime JS</title>
 </head>
 <body>
-    
-    <h1>hola</h1>
+    <!--    Practica de el video de Online Tutorials, enlace del canal de YouTube: https://www.youtube.com/@OnlineTutorialsYT      -->
 
+    <div class="container">
+        <h2>TE AMO<br> <span>Romina</span></h2>
+    </div>
+    <script src="anime.min.js"></script>
+    <script>
+        const container = document.querySelector('.container');
+        for (var i  = 0; i<=75; i++){
+            const hearts = document.createElement('div');
+            hearts.classList.add('heart');
+            container.appendChild(hearts);
+        }
+        function animateHearts(){
+            anime({
+                targets: '.heart',
+                translateX: function(){
+                    return anime.random(-700, 700);
+                },
+                translateY: function(){
+                    return anime.random(-500, 500);
+                },
+                rotate: 45,
+                scale: function(){
+                    return anime.random(1, 5);
+                },
+                easing: 'easeInOutBack',
+                duration: 3000,
+                delay: anime.stagger(10),
+                complete: animateHearts,
+
+            })
+        }
+
+        animateHearts()
+
+    </script>
 </body>
 </html>
